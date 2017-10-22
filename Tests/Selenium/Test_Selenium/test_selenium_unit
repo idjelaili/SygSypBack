@@ -1,0 +1,22 @@
+<?php
+
+require_once 'Testing/Selenium.php';
+
+class Example extends PHPUnit_Framework_TestCase
+{
+  protected function setUp()
+  {
+    $this = new Testing_Selenium("*chrome", "http://localhost/sigsipfront/app/#!/home/about")
+    $this->open("/sigsipfront/app/#!/home/inscription");
+    $this->click("link=Accueil");
+    $this->click("link=Inscription");
+    $this->type("id=prenom", "prenomUtilisateur");
+    $this->type("id=pwd", "mdp123");
+    $this->type("id=email", "utilisateur@hotmail.fr");
+    $this->type("id=nom", "nomUtilisateur");
+    $this->type("id=pwdConfirm", "mdp123");
+    $this->type("id=company", "Entreprise1");
+    $this->click("css=button.btn.btn-primary");
+  }
+}
+?>
